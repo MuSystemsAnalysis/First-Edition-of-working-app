@@ -1,0 +1,53 @@
+<head>
+	<title>Todo List</title>
+</head>
+
+<body>
+<div class="container"
+	ng-app="simple-todos"
+	ng-controller="TodosListCtrl">
+
+	<header>
+
+		<h1>Todo List ({{incompleteCount()}}) </h1>
+
+		<label class="hide-completed">
+			<input type="checkbox" ng-model="hideCompleted" />
+			Hide Completed Tasks
+		</label>
+
+		<login-buttons></login-buttons>
+
+    	<form name="myFormName" class="new-task" ng-submit="addTask(myForm.title,myForm.summary,myForm.start,myForm.end,myForm.date,myForm.venue,myForm.address,myForm.organizer,myForm.category, myForm.twenty); newTask='';" ng-show="$root.currentUser">
+    		<input ng-model="myForm.title" type="text"  placeholder="Type to add new title" />
+    		<input ng-model="myForm.summary" type="text"  placeholder="Type to add new summary" />
+    		<input ng-model="myForm.start" type="text"  placeholder="Type to add start time" />
+    		<input ng-model="myForm.end" type="text"  placeholder="Type to add end time" />
+    		<input ng-model="myForm.date" type="text"  placeholder="Type to add date" />
+    		<input ng-model="myForm.venue" type="text"  placeholder="Type to add venue" />
+    		<input ng-model="myForm.address" type="text"  placeholder="Type to add address" />
+    		<input ng-model="myForm.organizer" type="text"  placeholder="Type to add organizer" />
+    		<input ng-model="myForm.category" type="text"  placeholder="Type to add category" />
+    		<input ng-model="myForm.twenty" type="text"  placeholder="Is this 21 or over?" />
+    		 <input type="submit" value="Submit">
+    	</form>
+
+	</header>
+
+	<ul>
+		<li ng-repeat="task in tasks"
+   		     ng-class="{'checked': task.checked, 'private': task.private}">
+   		    
+    		<button class="delete" ng-if="task.owner === $root.currentUser._id" ng-click="deleteTask(task)">&times;</button>
+    
+
+      		<input type="checkbox" ng-if='$root.currentUser.emails[0].verified' ng-checked="task.checked"
+            	ng-click="setChecked(task)"  />
+
+
+			<span class="text"><strong>{{task.title}} <br> <strong>{{task.summary}}<br> <strong>{{task.start}}<br> <strong>{{task.end}}<br> <strong>{{task.date}}<br> <strong>{{task.venue}}<br> <strong>{{task.address}}<br> <strong>{{task.organizer}}<br> <strong>{{task.category}} <br> <strong>{{task.twenty}}</span>
+		</li>
+	</ul>
+
+</div>
+</body>
