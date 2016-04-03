@@ -28,7 +28,8 @@
     		<input ng-model="myForm.address" type="text"  placeholder="Type to add address" />
     		<input ng-model="myForm.organizer" type="text"  placeholder="Type to add organizer" />
     		<input ng-model="myForm.category" type="text"  placeholder="Type to add category" />
-    		<input ng-model="myForm.twenty" type="text"  placeholder="Is this 21 or over?" />
+    		21+ Only? <input ng-model="myForm.twenty" type="radio" name="adultOnly" value="21+"/><br>
+			All Ages? <input ng-model="myForm.twenty" type="radio" name="adultOnly" value="Everyone" checked/><br>
     		 <input type="submit" value="Submit">
     	</form>
 
@@ -45,7 +46,7 @@
             	ng-click="setChecked(task)"  />
 
 
-			<span class="text"><strong>{{task.title}} <br> <strong>{{task.summary}}<br> <strong>{{task.start}}<br> <strong>{{task.end}}<br> <strong>{{task.date}}<br> <strong>{{task.venue}}<br> <strong>{{task.address}}<br> <strong>{{task.organizer}}<br> <strong>{{task.category}} <br> <strong>{{task.twenty}}</span>
+			<span class="text"><strong>{{task.title}} <br> <strong>{{task.summary}}<br> <strong>{{task.start}}<br> <strong>{{task.end}}<br> <strong>{{task.date}}<br> <a href={{task.address}}><strong>{{task.venue}}</strong></a><br> <strong>{{task.organizer}}<br> <strong>{{task.category}} <br> <strong>{{task.twenty}}</span>
 		</li>
 	</ul>
 
