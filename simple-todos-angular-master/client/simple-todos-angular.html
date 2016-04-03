@@ -1,5 +1,16 @@
 <head>
 	<title>Todo List</title>
+	<meta charset="utf-8">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
 </head>
 
 <body>
@@ -23,7 +34,7 @@
     		<input ng-model="myForm.summary" type="text"  placeholder="Type to add new summary" />
     		<input ng-model="myForm.start" type="text"  placeholder="Type to add start time" />
     		<input ng-model="myForm.end" type="text"  placeholder="Type to add end time" />
-    		<input ng-model="myForm.date" type="text"  placeholder="Type to add date" />
+    		<input ng-model="myForm.date" type="text" id="datepicker"  placeholder="Type to add date" />
     		<input ng-model="myForm.venue" type="text"  placeholder="Type to add venue" />
     		<input ng-model="myForm.address" type="text"  placeholder="Type to add address" />
     		<input ng-model="myForm.organizer" type="text"  placeholder="Type to add organizer" />

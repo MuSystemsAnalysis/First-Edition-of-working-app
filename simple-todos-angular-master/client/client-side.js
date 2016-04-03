@@ -87,3 +87,4 @@ angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
     };
 
 }]); 
+
