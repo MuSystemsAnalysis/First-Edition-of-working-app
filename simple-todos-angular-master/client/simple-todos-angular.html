@@ -34,7 +34,7 @@
     		<input ng-model="myForm.summary" type="text"  placeholder="Type to add new summary" />
     		<input ng-model="myForm.start" type="text"  placeholder="Type to add start time" />
     		<input ng-model="myForm.end" type="text"  placeholder="Type to add end time" />
-    		<input ng-model="myForm.date" type="text" id="datepicker"  placeholder="Type to add date" />
+    		<input type="date" ng-model="myForm.date" value="{{ date | date: 'yyyy/MM/dd' }}" />
     		<input ng-model="myForm.venue" type="text"  placeholder="Type to add venue" />
     		<input ng-model="myForm.address" type="text"  placeholder="Type to add address" />
     		<input ng-model="myForm.organizer" type="text"  placeholder="Type to add organizer" />
@@ -47,7 +47,7 @@
 	</header>
 
 	<ul>
-		<li ng-repeat="task in tasks"
+		<li ng-repeat="task in tasks | orderBy:'-date':'reverse'"
    		     ng-class="{'checked': task.checked, 'private': task.private}">
    		    
     		<button class="delete" ng-if="task.owner === $root.currentUser._id" ng-click="deleteTask(task)">&times;</button>
@@ -57,7 +57,7 @@
             	ng-click="setChecked(task)"  />
 
 
-			<span class="text"><strong>{{task.title}} <br> <strong>{{task.summary}}<br> <strong>{{task.start}}<br> <strong>{{task.end}}<br> <strong>{{task.date}}<br> <a href={{task.address}}><strong>{{task.venue}}</strong></a><br> <strong>{{task.organizer}}<br> <strong>{{task.category}} <br> <strong>{{task.twenty}}</span>
+			<span class="text"><strong>{{task.title}} <br> <strong>{{task.summary}}<br> <strong>{{task.start}}<br> <strong>{{task.end}}<br> <label ng-bind="formatDate({{task.date}}) |  date:'MM/dd/yyyy'"></label><br> <a href={{task.address}}><strong>{{task.venue}}</strong></a><br> <strong>{{task.organizer}}<br> <strong>{{task.category}} <br> <strong>{{task.twenty}}</span>
 		</li>
 	</ul>
 

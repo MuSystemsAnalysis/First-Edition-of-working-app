@@ -7,11 +7,17 @@ angular.module('simple-todos',['angular-meteor', 'accounts.ui']);
 angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
   function ($scope, $meteor) {
 
+  	$scope.date = '20140313T00:00:00';
     $scope.$meteorSubscribe('tasks');
 
     $scope.tasks = $meteor.collection(function () {
       return Tasks.find($scope.getReactively('query'), {sort : {createdAt: -1}});
     });
+
+
+
+
+
 
     $scope.addTask = function (title,summary,start,end,date,venue,address,organizer,category,twenty) {
       $meteor.call('addTask', title,summary,start,end,date,venue,address,organizer,category,twenty).then(
@@ -72,6 +78,11 @@ angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
         style: 'growl-top-right',
         icon: 'fa-warning'
       });
+    };
+
+     $scope.formatDate = function(date){
+          var dateOut = new Date(date);
+          return dateOut;
     };
 
     $scope.$watch('hideCompleted', function () {

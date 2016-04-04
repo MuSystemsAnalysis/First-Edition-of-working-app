@@ -1,0 +1,25 @@
+<template name="shortEvent">
+	<div class="short-event">
+		<b>{{title}}</b><br>
+		{{summary}} <br>
+		{{#if adultOnly}}
+			<b>21+ Only</b><br>
+		{{/if}}
+		<button class="viewLong">VIEW</button>
+		<button class="delete">&times;</button>
+	</div>
+</template>
+
+<template name="longEvent">
+	<div class="long-event">
+		<b>{{title}}</b><br>
+		<p>{{longSummary}}</p><br>
+		Price: {{price}}<br>
+		Venue: {{venue}}<br>
+		Date : {{date}}<br>
+		{{#if adultOnly}}
+			<b>21+ only</b><br>
+		{{/if}}
+
+	</div>
+</template>
