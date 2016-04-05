@@ -20,12 +20,7 @@
 
 	<header>
 
-		<h1>Todo List ({{incompleteCount()}}) </h1>
-
-		<label class="hide-completed">
-			<input type="checkbox" ng-model="hideCompleted" />
-			Hide Completed Tasks
-		</label>
+		<h1>Mansfield Tonight</h1>
 
 		<login-buttons></login-buttons>
 
@@ -57,7 +52,21 @@
             	ng-click="setChecked(task)"  />
 
 
-			<span class="text"><strong>{{task.title}} <br> <strong>{{task.summary}}<br> <strong>{{task.start}}<br> <strong>{{task.end}}<br> <label ng-bind="formatDate({{task.date}}) |  date:'MM/dd/yyyy'"></label><br> <a href={{task.address}}><strong>{{task.venue}}</strong></a><br> <strong>{{task.organizer}}<br> <strong>{{task.category}} <br> <strong>{{task.twenty}}</span>
+			<div class="event-profile">
+        <strong>
+        <span class="title">{{task.title}} </span><br> 
+        <span class="details">
+          <hr>
+          {{task.summary}}<br> 
+          <hr>
+          <i>From</i> {{task.start}} <i>until</i> {{task.end}}<br> 
+          <label ng-bind="formatDate({{task.date}}) |  date:'MM/dd/yyyy'"></label><br>
+          <a href={{task.address}}><strong>{{task.venue}}</strong></a><br>
+          Presented by {{task.organizer}}<br>
+          {{task.category}} <br>
+          {{task.twenty}}
+        </span>
+      </div>
 		</li>
 	</ul>
 

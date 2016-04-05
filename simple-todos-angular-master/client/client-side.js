@@ -24,7 +24,7 @@ angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
         function(data) {
           Bert.alert({
             title: "New Event Added!",
-            message: '"' + newTask + '" added.',
+            message: 'New task added.',
             style: 'growl-top-right',
             type: 'success'
           });
