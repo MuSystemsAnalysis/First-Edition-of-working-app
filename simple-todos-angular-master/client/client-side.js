@@ -9,7 +9,6 @@ angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
 
   	$scope.date = '20140313T00:00:00';
     $scope.$meteorSubscribe('tasks');
-	
     $scope.tasks = $meteor.collection(function () {
       return Tasks.find($scope.getReactively('query'), {sort : {createdAt: -1}});
     });
